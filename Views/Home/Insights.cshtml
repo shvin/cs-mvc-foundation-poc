@@ -1,0 +1,83 @@
+@{
+    ViewData["Title"] = "Insights";
+}
+
+<div class="container-fluid p-4">
+    <div class="mb-4">
+        <h4 class="fw-semibold mb-1">Insights</h4>
+        <p class="text-muted mb-0">AI-powered analysis of your project data.</p>
+    </div>
+
+    <div class="alert border-0 shadow-sm d-flex gap-3 align-items-start mb-4" style="background:var(--brand-light,#eef2ff); border-left:4px solid var(--brand,#1a56db) !important;">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" class="flex-shrink-0 mt-1" style="color:var(--brand,#1a56db)">
+            <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+            <strong>AI Analysis</strong> — Insights uses AI to surface patterns and risks across your projects.
+            Review all suggestions carefully before acting on them.
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-12 col-lg-6">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-transparent border-bottom pt-3 pb-2">
+                    <h6 class="mb-0 fw-semibold">Risk Signals</h6>
+                </div>
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item px-4 py-3">
+                        <div class="d-flex gap-3">
+                            <span class="badge bg-danger-subtle text-danger align-self-start mt-1">High</span>
+                            <div>
+                                <div class="fw-medium">Data Pipeline is 75% overdue</div>
+                                <div class="text-muted small">3 critical tasks have been blocked for more than 5 days.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item px-4 py-3">
+                        <div class="d-flex gap-3">
+                            <span class="badge bg-warning-subtle text-warning align-self-start mt-1">Medium</span>
+                            <div>
+                                <div class="fw-medium">Auth Module Upgrade has no tests</div>
+                                <div class="text-muted small">40% complete but test coverage is 0%.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item px-4 py-3">
+                        <div class="d-flex gap-3">
+                            <span class="badge bg-success-subtle text-success align-self-start mt-1">Good</span>
+                            <div>
+                                <div class="fw-medium">Mobile App v2 on track for release</div>
+                                <div class="text-muted small">90% complete with only 3 tasks remaining.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-transparent border-bottom pt-3 pb-2">
+                    <h6 class="mb-0 fw-semibold">Productivity Trend</h6>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted small mb-3">Tasks completed per week (last 6 weeks)</p>
+                    <div class="d-flex align-items-end gap-2" style="height:100px;">
+                        @foreach (var (val, week) in new[] { (14,"W1"), (18,"W2"), (12,"W3"), (22,"W4"), (19,"W5"), (23,"W6") })
+                        {
+                            <div class="d-flex flex-column align-items-center flex-grow-1 gap-1">
+                                <small class="text-muted" style="font-size:.65rem;">@val</small>
+                                <div class="w-100 rounded-top" style="height:@(val*3)px; background:var(--brand,#1a56db); opacity:.75;"></div>
+                                <small class="text-muted" style="font-size:.65rem;">@week</small>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Footer {
+    @await Html.PartialAsync("_PublicFooter")
+}

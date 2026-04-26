@@ -1,0 +1,25 @@
+## .NET
+bin/
+obj/
+*.user
+.vs/
+.vscode/
+*.suo
+
+## NuGet credentials — never commit these
+nuget.local.config
+**/NuGet.Config.local
+
+## App secrets
+appsettings.local.json
+appsettings.*.local.json
+
+## OS
+.DS_Store
+Thumbs.db
+
+## Test results
+TestResults/
+coverage/
+*.trx
+*.coverage

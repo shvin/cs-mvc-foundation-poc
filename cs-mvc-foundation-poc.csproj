@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>CsMvcFoundationPoc</RootNamespace>
+    <AssemblyName>CsMvcFoundationPoc</AssemblyName>
+  </PropertyGroup>
+
+  <!--
+    Switch between NuGet packages (CI / deployed) and local project references (dev).
+    To use NuGet: remove the ProjectReference block and restore the PackageReference block.
+    Packages are published to GitHub Packages from cs-shared-libs on every v* tag push.
+  -->
+
+  <!-- Local development: project references (both repos cloned side-by-side) -->
+  <ItemGroup>
+    <ProjectReference Include="../cs-shared-libs/src/Web/Mvc/WebShell/WebShell.csproj" />
+    <ProjectReference Include="../cs-shared-libs/src/Web/Mvc/WebSecurity/WebSecurity.csproj" />
+  </ItemGroup>
+
+  <!--
+  NuGet (after first release tag is pushed to cs-shared-libs):
+  <ItemGroup>
+    <PackageReference Include="CS.Shared.Web.Mvc.WebShell"   Version="1.*" />
+    <PackageReference Include="CS.Shared.Web.Mvc.WebSecurity" Version="1.*" />
+  </ItemGroup>
+  -->
+
+</Project>

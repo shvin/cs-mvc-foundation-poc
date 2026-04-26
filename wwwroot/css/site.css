@@ -1,0 +1,21 @@
+/* App-specific styles — WebShell CSS custom properties are already available here */
+
+/* Ensure main content scrolls within the layout chrome */
+.claude-main {
+    overflow-y: auto;
+}
+
+/* Tighten Bootstrap card defaults */
+.card {
+    border-radius: var(--radius-md, 8px);
+}
+
+/* Table row hover uses brand colour at low opacity */
+.table-hover > tbody > tr:hover > * {
+    background-color: color-mix(in srgb, var(--brand, #1a56db) 5%, transparent);
+}
+
+/* Progress bar colour via brand token */
+.progress-bar.bg-primary {
+    background-color: var(--brand, #1a56db) !important;
+}

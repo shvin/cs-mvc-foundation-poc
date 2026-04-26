@@ -1,0 +1,50 @@
+@{
+    ViewData["Title"] = "Tasks";
+}
+
+<div class="container-fluid p-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h4 class="fw-semibold mb-1">Tasks</h4>
+            <p class="text-muted mb-0">All tasks assigned to you across projects.</p>
+        </div>
+        <button class="btn btn-primary btn-sm px-3">+ New Task</button>
+    </div>
+
+    <div class="card border-0 shadow-sm">
+        <div class="card-body p-0">
+            <table class="table table-hover mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-4 py-3 fw-semibold text-muted small">Task</th>
+                        <th class="py-3 fw-semibold text-muted small">Project</th>
+                        <th class="py-3 fw-semibold text-muted small">Priority</th>
+                        <th class="py-3 fw-semibold text-muted small">Due</th>
+                        <th class="py-3 fw-semibold text-muted small">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var task in new[] {
+                        new { Name = "Review design mockups",         Project = "Dashboard Redesign",    Priority = "High",   Due = "Today",     Status = "In Progress" },
+                        new { Name = "Fix login redirect bug",        Project = "Auth Module Upgrade",   Priority = "High",   Due = "Overdue",   Status = "To Do" },
+                        new { Name = "Update API documentation",      Project = "API v3 Migration",      Priority = "Medium", Due = "Tomorrow",  Status = "To Do" },
+                        new { Name = "Write unit tests for parser",   Project = "Data Pipeline",         Priority = "Medium", Due = "Next week", Status = "To Do" },
+                        new { Name = "Set up staging environment",    Project = "Q3 Analytics Platform", Priority = "Low",    Due = "Fri",       Status = "Done" },
+                        new { Name = "Performance profiling session", Project = "Mobile App v2",         Priority = "Low",    Due = "Next week", Status = "To Do" },
+                    })
+                    {
+                        var priorityColor = task.Priority switch { "High" => "danger", "Medium" => "warning", _ => "secondary" };
+                        var statusColor   = task.Status  switch { "Done" => "success", "In Progress" => "primary", _ => "secondary" };
+                        <tr>
+                            <td class="ps-4 py-3 fw-medium">@task.Name</td>
+                            <td class="py-3 text-muted small">@task.Project</td>
+                            <td class="py-3"><span class="badge bg-@(priorityColor)-subtle text-@(priorityColor)">@task.Priority</span></td>
+                            <td class="py-3 small @(task.Due == "Overdue" ? "text-danger fw-semibold" : "text-muted")">@task.Due</td>
+                            <td class="py-3"><span class="badge bg-@(statusColor)-subtle text-@(statusColor)">@task.Status</span></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
