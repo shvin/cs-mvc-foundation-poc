@@ -63,6 +63,20 @@ builder.Services.AddWebShell(opts =>
         },
         new NavSection
         {
+            Label = "Files",
+            Items =
+            [
+                new NavItem
+                {
+                    Label   = "Downloads",
+                    Href    = "/download",
+                    NavKey  = "downloads",
+                    IconSvg = "<path d='M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/>",
+                },
+            ]
+        },
+        new NavSection
+        {
             Label = "Analytics",
             Items =
             [
