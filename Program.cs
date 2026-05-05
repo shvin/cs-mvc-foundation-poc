@@ -1,6 +1,5 @@
-using CS.Shared.Web.Mvc.WebShell.Extensions;
-using CS.Shared.Web.Mvc.WebShell.Models;
-using CS.Shared.Web.Mvc.WebSecurity.Extensions;
+using CS.Shared.Core.Navigation;
+using CS.Shared.WebMvcShell.Extensions;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);

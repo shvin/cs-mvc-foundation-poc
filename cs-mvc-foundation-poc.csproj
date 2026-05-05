@@ -8,6 +8,10 @@
     <AssemblyName>CsMvcFoundationPoc</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="CS.Shared.WebMvcShell" Version="6.4.0" />
+  </ItemGroup>
+
   <!--
     Switch between NuGet packages (CI / deployed) and local project references (dev).
     To use NuGet: remove the ProjectReference block and restore the PackageReference block.
@@ -15,10 +19,6 @@
   -->
 
   <!-- Local development: project references (both repos cloned side-by-side) -->
-  <ItemGroup>
-    <ProjectReference Include="../cs-shared-libs/src/Web/Mvc/WebShell/WebShell.csproj" />
-    <ProjectReference Include="../cs-shared-libs/src/Web/Mvc/WebSecurity/WebSecurity.csproj" />
-  </ItemGroup>
 
   <!--
   NuGet (after first release tag is pushed to cs-shared-libs):
